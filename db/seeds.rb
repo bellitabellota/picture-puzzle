@@ -38,7 +38,7 @@ puzzle2.assign_attributes(
   ]
 )
 
-puzzle.save!
+puzzle2.save!
 
 puzzle3 = PicturePuzzle.find_or_initialize_by(title: "Peter Pan")
 
