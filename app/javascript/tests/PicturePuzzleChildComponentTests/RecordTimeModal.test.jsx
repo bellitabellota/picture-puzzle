@@ -1,4 +1,3 @@
-import React from "react";
 import {fireEvent, render, screen } from "@testing-library/react";
 import RecordTimeModal from "../../components/PicturePuzzleChildComponents/RecordTimeModal";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";

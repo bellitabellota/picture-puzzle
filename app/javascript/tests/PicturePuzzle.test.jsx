@@ -1,7 +1,6 @@
 import PicturePuzzle from "../components/PicturePuzzle";
 import usePicturePuzzle from "../components/custom_hooks/usePicturePuzzle";
 import {render, screen, fireEvent } from "@testing-library/react";
-import React from "react";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import routes from "../routes/index"
 import useValidateGuess from "../components/custom_hooks/useValidateGuess";

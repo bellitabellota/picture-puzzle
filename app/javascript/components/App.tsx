@@ -1,4 +1,3 @@
-import React from "react";
 import routes from "../routes/index"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

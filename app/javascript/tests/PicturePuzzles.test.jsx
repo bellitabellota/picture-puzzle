@@ -1,7 +1,6 @@
 import PicturePuzzles from "../components/PicturePuzzles";
 import usePicturePuzzles from "../components/custom_hooks/usePicturePuzzles";
 import {render, screen } from "@testing-library/react";
-import React from "react";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import routes from "../routes/index"
 

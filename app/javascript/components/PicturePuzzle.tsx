@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from "react";
+import {useRef, useState, useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 import IncorrectMessage from "./PicturePuzzleChildComponents/IncorrectMessage";
 import SelectBoxContainer from "./PicturePuzzleChildComponents/SelectBoxContainer";

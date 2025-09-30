@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 
 function CheckMark({identifiedTargets, imgRef, resolution}) {
   const [scalingFactors, setScalingFactors] = useState({ scaleX: 1, scaleY: 1 });

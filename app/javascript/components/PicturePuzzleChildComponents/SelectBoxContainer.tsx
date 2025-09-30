@@ -1,4 +1,3 @@
-import React from "react";
 function SelectBoxContainer({clickedCoordinates, selectBox, targets, selectName}) {
   const targetOptions = targets.map((target) => <option value={target.name} key={target.name}>{target.name}</option>)
 

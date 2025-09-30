@@ -1,4 +1,3 @@
-import React from "react";
 import {render, screen } from "@testing-library/react";
 import PuzzleResults from "../components/PuzzleResults";
 import usePuzzleResults from "../components/custom_hooks/usePuzzleResults";

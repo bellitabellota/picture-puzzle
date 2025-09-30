@@ -1,5 +1,3 @@
-import React from "react";
-
 function Timer({seconds}) {
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);

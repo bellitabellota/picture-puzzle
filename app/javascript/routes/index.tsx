@@ -1,8 +1,6 @@
 import PicturePuzzles from "../components/PicturePuzzles";
 import PicturePuzzle from "../components/PicturePuzzle"
 import PuzzleResults from "../components/PuzzleResults";
-import React from "react";
-
 const routes = [{
   path: "/",
   element: <PicturePuzzles />

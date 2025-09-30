@@ -1,4 +1,3 @@
-import React from "react";
 import {render, screen, fireEvent } from "@testing-library/react";
 import SelectBoxContainer from "../../components/PicturePuzzleChildComponents/SelectBoxContainer";
 
