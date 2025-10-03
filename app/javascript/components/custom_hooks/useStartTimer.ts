@@ -6,7 +6,7 @@ const useStartTimer = (puzzle, paramsId) => {
   useEffect(()=> {
     if(puzzle ) {
       const url = `/api/v1/puzzle_timers/${paramsId}/start_timer`;
-      const token = document.querySelector('meta[name="csrf-token"]').content;
+      const token = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]').content;
 
       fetch(url, {
         method: "POST",
