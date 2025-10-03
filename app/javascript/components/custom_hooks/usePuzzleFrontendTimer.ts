@@ -3,7 +3,7 @@ import {useState, useEffect, useRef} from "react";
 
 const usePuzzleFrontendTimer = (puzzle, secondsToCompletion) => {
   const [secondsPassed, setSecondsPassed] = useState(0);
-  const savedIncreaseSecondsPassed = useRef();
+  const savedIncreaseSecondsPassed = useRef(null);
 
   function increaseSecondsPassed() {
     setSecondsPassed(secondsPassed + 1);
