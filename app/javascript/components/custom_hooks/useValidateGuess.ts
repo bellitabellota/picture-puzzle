@@ -8,7 +8,7 @@ const useValidateGuess = (selectedName, setSelectedName, paramsId, clickedCoordi
     if (!selectedName) return;
 
     const url = `/api/v1/puzzle_validations/${paramsId}/validate_guess`
-    const token = document.querySelector('meta[name="csrf-token"]').content;
+    const token = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]').content;
     const body = {originalX: clickedCoordinates.originalX, originalY: clickedCoordinates.originalY, selectedName}
 
     fetch(url, {
