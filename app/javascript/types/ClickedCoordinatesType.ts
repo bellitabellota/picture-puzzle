@@ -1,4 +1,4 @@
-export type clickedCoordinatesType = {
+export type ClickedCoordinatesType = {
   originalX: number, 
   originalY: number, 
   scaledX: number, 

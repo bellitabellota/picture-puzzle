@@ -11,14 +11,14 @@ import useStartTimer from "./custom_hooks/useStartTimer";
 import useValidateGuess from "./custom_hooks/useValidateGuess";
 import useGameState from "./custom_hooks/useGameState";
 
-import type {clickedCoordinatesType} from "../types/clickedCoordinatesType"
+import type {ClickedCoordinatesType} from "../types/ClickedCoordinatesType"
 
 function PicturePuzzle() {
   const params = useParams();
   const {puzzle, error, isLoading}  = usePicturePuzzle(params.id);
   
   const [incorrectMessage, setIncorrectMessage] = useState(null);
-  const [clickedCoordinates, setClickedCoordinates] = useState<clickedCoordinatesType>(null);
+  const [clickedCoordinates, setClickedCoordinates] = useState<ClickedCoordinatesType>(null);
   const [selectedName, setSelectedName] = useState(null);
 
   const {correctlyIdentifiedTargets, validationError} = useValidateGuess(selectedName, setSelectedName, params.id, clickedCoordinates, incorrectMessage, setIncorrectMessage)
