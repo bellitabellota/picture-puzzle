@@ -5,7 +5,7 @@ import usePostResult from "../custom_hooks/usePostResult";
 function RecordTimeModal({secondsToCompletion}) {
   const params = useParams();
   const [playerName, setPlayerName] = useState(null);
-  const inputField = useRef();
+  const inputField = useRef(null);
   const navigate = useNavigate();
 
   const {resultSaved, saveResultError} = usePostResult(playerName, navigate, params.id);
