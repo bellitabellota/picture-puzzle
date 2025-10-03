@@ -7,7 +7,7 @@ const usePostResult = (playerName, navigate, paramsId) => {
   useEffect(() => {
     if(!playerName) return;
     const url = `/api/v1/picture_puzzles/${paramsId}/results`;
-    const token = document.querySelector('meta[name="csrf-token').content
+    const token = document.querySelector<HTMLMetaElement>('meta[name="csrf-token').content
 
     const body = {puzzle_result: {player_name: playerName}}
 
@@ -27,7 +27,7 @@ const usePostResult = (playerName, navigate, paramsId) => {
       }
 
       return response.json();
-    }).then((data)=> { 
+    }).then(()=> { 
       setResultSaved(true);
     })
     .catch((error) => {setSaveResultError(error)})
@@ -36,4 +36,4 @@ const usePostResult = (playerName, navigate, paramsId) => {
   return { resultSaved, saveResultError }
 }
 
-export default usePostResult;
+export default usePostResult; 
