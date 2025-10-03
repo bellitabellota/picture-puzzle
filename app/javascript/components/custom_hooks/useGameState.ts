@@ -7,7 +7,6 @@ const useGameState = (puzzle, correctlyIdentifiedTargets, paramsId) => {
   useEffect(() => {
     if (puzzle && (correctlyIdentifiedTargets.length === puzzle.targets.length)) {
       const url = `/api/v1/puzzle_validations/${paramsId}/game_state`
-      const token = document.querySelector('meta[name="csrf-token"]').content;
 
       fetch(url)
       .then((response) => {
