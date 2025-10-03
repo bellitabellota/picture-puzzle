@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect} from "react";
+import {useRef, useState} from "react";
 import { Link, useParams } from "react-router-dom";
 import IncorrectMessage from "./PicturePuzzleChildComponents/IncorrectMessage";
 import SelectBoxContainer from "./PicturePuzzleChildComponents/SelectBoxContainer";
@@ -11,12 +11,14 @@ import useStartTimer from "./custom_hooks/useStartTimer";
 import useValidateGuess from "./custom_hooks/useValidateGuess";
 import useGameState from "./custom_hooks/useGameState";
 
+import type {clickedCoordinatesType} from "../types/clickedCoordinatesType"
+
 function PicturePuzzle() {
   const params = useParams();
   const {puzzle, error, isLoading}  = usePicturePuzzle(params.id);
   
   const [incorrectMessage, setIncorrectMessage] = useState(null);
-  const [clickedCoordinates, setClickedCoordinates] = useState({ });
+  const [clickedCoordinates, setClickedCoordinates] = useState<clickedCoordinatesType>(null);
   const [selectedName, setSelectedName] = useState(null);
 
   const {correctlyIdentifiedTargets, validationError} = useValidateGuess(selectedName, setSelectedName, params.id, clickedCoordinates, incorrectMessage, setIncorrectMessage)
@@ -73,7 +75,7 @@ function PicturePuzzle() {
       </div>
 
       <div className="img-container">
-        {clickedCoordinates.isSelecting && 
+        {clickedCoordinates?.isSelecting && 
           <SelectBoxContainer clickedCoordinates={clickedCoordinates} selectBox={selectBox} targets={puzzle.targets} selectName={selectName} />
         }
 
