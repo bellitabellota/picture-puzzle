@@ -6,7 +6,8 @@ const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|nu
 
   const [correctlyIdentifiedTargets, setCorrectlyIdentifiedTargets] = useState([]);
   const [validationError, setValidationError] = useState(null);
-
+  console.log(correctlyIdentifiedTargets)
+  console.log(correctlyIdentifiedTargets.length)
   useEffect(()=>{
     if (!selectedName) return;
 
@@ -32,7 +33,12 @@ const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|nu
       return response.json()
 
     }).then((data) => {
-      if (data.success === true && !correctlyIdentifiedTargets.includes(data.target)) {
+
+      const alreadyIdentified = correctlyIdentifiedTargets.some(
+        target => target.name === data.target.name
+      );
+
+      if (data.success === true && !alreadyIdentified) {
         setCorrectlyIdentifiedTargets([...correctlyIdentifiedTargets, data.target]);
       } else {
         setIncorrectMessage(data.message);
