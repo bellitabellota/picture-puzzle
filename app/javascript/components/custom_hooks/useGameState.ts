@@ -4,8 +4,6 @@ import type { PuzzleType } from "../../types/PuzzleType";
 import type { IdentifiedTargetType } from "../../types/IdentifiedTargetType";
 
 const useGameState = (puzzle: PuzzleType, correctlyIdentifiedTargets: IdentifiedTargetType[], paramsId: string) => {
-  console.log(puzzle)
-  
   const [secondsToCompletion, setSecondsToCompletion] = useState(null);
   const [gameStateError, setGameStateError] = useState(null);
 
