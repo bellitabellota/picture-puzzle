@@ -21,7 +21,7 @@ function PicturePuzzle() {
   const [clickedCoordinates, setClickedCoordinates] = useState<ClickedCoordinatesType>(null);
   const [selectedName, setSelectedName] = useState(null);
 
-  const {correctlyIdentifiedTargets, validationError} = useValidateGuess(selectedName, setSelectedName, params.id, clickedCoordinates, incorrectMessage, setIncorrectMessage)
+  const {correctlyIdentifiedTargets, validationError} = useValidateGuess(selectedName, setSelectedName, params.id, clickedCoordinates, setIncorrectMessage)
   const {secondsToCompletion, gameStateError} = useGameState(puzzle, correctlyIdentifiedTargets, params.id)
   const {startTimerError} = useStartTimer(puzzle, params.id);
   const {secondsPassed} = usePuzzleFrontendTimer (puzzle, secondsToCompletion);

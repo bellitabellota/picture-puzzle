@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const useValidateGuess = (selectedName, setSelectedName, paramsId, clickedCoordinates, incorrectMessage, setIncorrectMessage) => {
+const useValidateGuess = (selectedName, setSelectedName, paramsId, clickedCoordinates, setIncorrectMessage) => {
   const [correctlyIdentifiedTargets, setCorrectlyIdentifiedTargets] = useState([]);
   const [validationError, setValidationError] = useState(null);
 
@@ -38,7 +38,7 @@ const useValidateGuess = (selectedName, setSelectedName, paramsId, clickedCoordi
     }).catch(error => { setValidationError(error)})
   }, [selectedName])
 
-  return {incorrectMessage, correctlyIdentifiedTargets, validationError}
+  return {correctlyIdentifiedTargets, validationError}
 }
 
 export default useValidateGuess;
