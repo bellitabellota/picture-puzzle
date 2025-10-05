@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const usePuzzleResults = (paramsId) => {
+const usePuzzleResults = (paramsId: string) => {
   const [puzzleResults, setPuzzleResults] = useState([]);
   const [puzzleTitle, setPuzzleTitle] = useState(null);
   const [error, setError] = useState(null);
