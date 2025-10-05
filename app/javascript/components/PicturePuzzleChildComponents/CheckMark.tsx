@@ -1,10 +1,11 @@
 import {useState, useEffect} from "react";
 
+import type {RefObject} from "react"
 import type {IdentifiedTargetType} from "../../types/IdentifiedTargetType"
 
 type CheckMarkPropType = {
   identifiedTargets: IdentifiedTargetType[],
-  imgRef: {current: HTMLImageElement},
+  imgRef: RefObject<HTMLImageElement>,
   resolution: [number, number]
 }
 
