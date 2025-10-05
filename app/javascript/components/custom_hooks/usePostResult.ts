@@ -1,8 +1,6 @@
 import {useState, useEffect} from "react";
 
-import type { NavigateFunction } from "react-router-dom";
-
-const usePostResult = (playerName: string, navigate: NavigateFunction, paramsId: string) => {
+const usePostResult = (playerName: string, paramsId: string) => {
   const [saveResultError, setSaveResultError] = useState(null);
   const [resultSaved, setResultSaved] = useState(false);
 
@@ -33,7 +31,7 @@ const usePostResult = (playerName: string, navigate: NavigateFunction, paramsId:
       setResultSaved(true);
     })
     .catch((error) => {setSaveResultError(error)})
-  }, [playerName, navigate])
+  }, [playerName])
 
   return { resultSaved, saveResultError }
 }

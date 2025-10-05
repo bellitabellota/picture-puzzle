@@ -8,7 +8,7 @@ function RecordTimeModal({secondsToCompletion}: {secondsToCompletion: number}) {
   const inputField = useRef(null);
   const navigate = useNavigate();
 
-  const {resultSaved, saveResultError} = usePostResult(playerName, navigate, params.id);
+  const {resultSaved, saveResultError} = usePostResult(playerName, params.id);
 
   const minutes = Math.floor(secondsToCompletion / 60);
   const remainingSeconds = secondsToCompletion % 60;
