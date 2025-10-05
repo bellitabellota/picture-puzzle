@@ -27,9 +27,9 @@ describe("PuzzleResults", () => {
     const memoryRouter = createMemoryRouter(routes, { initialEntries: ["/123/results"] });
     usePuzzleResults.mockReturnValue({
       puzzleResults: [
-        {id: 1, name: "Player 1", seconds_to_completion: 28},
-        {id: 2, name: "Player 2", seconds_to_completion: 35},
-        {id: 3, name: "Player 3", seconds_to_completion: 68}
+        {id: 1, name: "Player 1", secondsToCompletion: 28},
+        {id: 2, name: "Player 2", secondsToCompletion: 35},
+        {id: 3, name: "Player 3", secondsToCompletion: 68}
       ], 
       puzzleTitle: "Test Puzzle 123", 
       error: null, 

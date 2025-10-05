@@ -11,7 +11,7 @@ function PicturePuzzles() {
     <Link to={`/${picturePuzzle.id}`} key={picturePuzzle.id}>
       <div className="picture-puzzle" >
         <div className="image-container">
-          <img src={picturePuzzle.image_src} className="puzzle-image" />
+          <img src={picturePuzzle.imageSrc} className="puzzle-image" />
         </div>
         <p className="puzzle-title">{picturePuzzle.title}</p>
       </div>

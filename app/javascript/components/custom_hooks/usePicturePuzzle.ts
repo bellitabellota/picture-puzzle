@@ -19,10 +19,7 @@ const usePicturePuzzle = (paramsId: string) => {
       return response.json();
     })
     .then((response) => {
-      setPuzzle({...response,
-        imageSrc: response.image_src,
-        taskDescription: response.task_description
-      });
+      setPuzzle(response);
     }).catch((error) => {
       if (error.name !== "AbortError") {
         setError(error);

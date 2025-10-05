@@ -4,9 +4,18 @@ class Api::V1::PuzzleResultsController < ApplicationController
   def index
     results = PuzzleResult.where(picture_puzzle_id: params[:picture_puzzle_id]).order(:seconds_to_completion)
 
+    formatted_results = []
+    results.each do |result|
+      formatted_results.push({
+        id: result.id,
+        name: result.name,
+        secondsToCompletion: result.seconds_to_completion
+      })
+    end
+
     picture_puzzle = PicturePuzzle.find(params[:picture_puzzle_id])
 
-    render json: { puzzleTitle: picture_puzzle.title, results: results }
+    render json: { puzzleTitle: picture_puzzle.title, results: formatted_results }
   end
 
   def create

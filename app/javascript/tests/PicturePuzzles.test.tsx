@@ -27,10 +27,10 @@ describe("PicturePuzzles", ()=> {
     const memoryRouter = createMemoryRouter(routes);
     usePicturePuzzles.mockReturnValue({picturePuzzles: [
       {
-        id: 1, title: 'Test Puzzle 1', image_src: '/picture-puzzle-images/test-puzzle-1.jpg'
+        id: 1, title: 'Test Puzzle 1', imageSrc: '/picture-puzzle-images/test-puzzle-1.jpg'
       }, 
       {
-        id: 2, title: 'Test Puzzle 2', image_src: '/picture-puzzle-images/test-puzzle-2.jpg'
+        id: 2, title: 'Test Puzzle 2', imageSrc: '/picture-puzzle-images/test-puzzle-2.jpg'
       }
     ], error: false, isLoading: false})
 

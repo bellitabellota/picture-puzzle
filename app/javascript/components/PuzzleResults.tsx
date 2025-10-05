@@ -9,8 +9,8 @@ function PuzzleResults() {
   if(error) return <p>{error.message}</p>;
 
   const resultElements = puzzleResults.map((result, index) => {
-    const minutes = Math.floor(result.seconds_to_completion/ 60);
-    const remainingSeconds = result.seconds_to_completion % 60;
+    const minutes = Math.floor(result.secondsToCompletion/ 60);
+    const remainingSeconds = result.secondsToCompletion % 60;
 
     return(
       <div key={result.id}>

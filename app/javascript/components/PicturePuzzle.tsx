@@ -16,7 +16,7 @@ import type {ClickedCoordinatesType} from "../types/ClickedCoordinatesType"
 function PicturePuzzle() {
   const params = useParams();
   const {puzzle, error, isLoading}  = usePicturePuzzle(params.id);
-  
+
   const [incorrectMessage, setIncorrectMessage] = useState(null);
   const [clickedCoordinates, setClickedCoordinates] = useState<ClickedCoordinatesType>(null);
   const [selectedName, setSelectedName] = useState(null);
@@ -36,8 +36,8 @@ function PicturePuzzle() {
     const displayedWidth = rect.width;
     const displayedHeight = rect.height;
 
-    const scalingFactorX = displayedWidth / puzzle.resolution_width;
-    const scalingFactorY = displayedHeight / puzzle.resolution_height;
+    const scalingFactorX = displayedWidth / puzzle.resolutionWidth;
+    const scalingFactorY = displayedHeight / puzzle.resolutionHeight;
 
     // Calculate relative click position
     const scaledX = event.clientX - rect.left;
@@ -80,7 +80,7 @@ function PicturePuzzle() {
         }
 
         { (correctlyIdentifiedTargets.length !== 0) &&
-          <CheckMark identifiedTargets={correctlyIdentifiedTargets} imgRef={imgRef} resolution={[puzzle.resolution_width, puzzle.resolution_height]} />
+          <CheckMark identifiedTargets={correctlyIdentifiedTargets} imgRef={imgRef} resolution={[puzzle.resolutionWidth, puzzle.resolutionHeight]} />
         }
 
         { secondsToCompletion !== null && 

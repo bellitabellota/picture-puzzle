@@ -3,17 +3,31 @@ class Api::V1::PicturePuzzlesController < ApplicationController
 
   def index
     puzzles = PicturePuzzle.all
-    filtered_puzzles = puzzles.map { |puzzle| puzzle.as_json(only: [ :id, :title, :image_src ]) }
+
+    filtered_puzzles = puzzles.map do |puzzle|
+      { id: puzzle.id,
+        title: puzzle.title,
+        imageSrc: puzzle.image_src
+      }
+    end
+
     render json: filtered_puzzles
   end
 
   def show
     puzzle = PicturePuzzle.find(params[:id])
 
-    filtered_puzzle = puzzle.as_json
-    filtered_puzzle["targets"].each { |target| target.delete("boundingBox") }
-
-    render json: filtered_puzzle
+    render json: {
+      id: puzzle.id,
+      title: puzzle.title,
+      imageSrc: puzzle.image_src,
+      taskDescription: puzzle.task_description,
+      resolutionWidth: puzzle.resolution_width,
+      resolutionHeight: puzzle.resolution_height,
+      targets: puzzle.targets.map { |t| { name: t["name"] } },
+      createdAt: puzzle.created_at,
+      updatedAt: puzzle.updated_at
+    }
   end
 
   private

@@ -19,8 +19,8 @@ const testPuzzle = {
   title: "Fun Test Puzzle",
   imageSrc: "/picture-puzzle-images/test-puzzle.jpg",
   taskDescription: "Find all Test Targets.",
-  resolution_width: 1280,
-  resolution_height: 720,
+  resolutionWidth: 1280,
+  resolutionHeight: 720,
   targets: [
       { name: "Test Target 1" },
       { name: "Test Target 2" },
