@@ -1,6 +1,11 @@
 import {useEffect} from "react";
 
-function IncorrectMessage({message, setIncorrectMessage}) {
+type IncorrectMessagePropType = {
+  message: string,
+  setIncorrectMessage: (a: string | null)=> void
+}
+
+function IncorrectMessage({message, setIncorrectMessage}: IncorrectMessagePropType) {
   useEffect(() => {
     if (message) {
       
