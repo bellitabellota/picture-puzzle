@@ -1,7 +1,9 @@
 
 import {useState, useEffect, useRef} from "react";
 
-const usePuzzleFrontendTimer = (puzzle, secondsToCompletion) => {
+import type { PuzzleType } from "../../types/PuzzleType";
+
+const usePuzzleFrontendTimer = (puzzle: PuzzleType, secondsToCompletion: number) => {
   const [secondsPassed, setSecondsPassed] = useState(0);
   const savedIncreaseSecondsPassed = useRef(null);
 
@@ -17,7 +19,7 @@ const usePuzzleFrontendTimer = (puzzle, secondsToCompletion) => {
   })
 
   useEffect(()=>{
-    let id;
+    let id: number;
     if (secondsToCompletion) return;
 
     if (puzzle) {
@@ -26,6 +28,7 @@ const usePuzzleFrontendTimer = (puzzle, secondsToCompletion) => {
 
     return () => {
       if (id) {
+       
         clearInterval(id);
       }
     }
