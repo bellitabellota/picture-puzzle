@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
 
-const useValidateGuess = (selectedName, setSelectedName, paramsId, clickedCoordinates, setIncorrectMessage) => {
+import type { ClickedCoordinatesType } from "../../types/ClickedCoordinatesType";
+
+const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|null)=> void, paramsId: string, clickedCoordinates:ClickedCoordinatesType|null, setIncorrectMessage:(a:string|null)=>void) => {
+
   const [correctlyIdentifiedTargets, setCorrectlyIdentifiedTargets] = useState([]);
   const [validationError, setValidationError] = useState(null);
 
