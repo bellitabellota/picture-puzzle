@@ -2,7 +2,7 @@ import {useState, useRef, useEffect} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import usePostResult from "../custom_hooks/usePostResult";
 
-function RecordTimeModal({secondsToCompletion}) {
+function RecordTimeModal({secondsToCompletion}: {secondsToCompletion: number}) {
   const params = useParams();
   const [playerName, setPlayerName] = useState(null);
   const inputField = useRef(null);
