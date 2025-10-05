@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-const usePicturePuzzle = (paramsId) => {
+const usePicturePuzzle = (paramsId: string) => {
   const [puzzle , setPuzzle ] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
