@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
 
-const useStartTimer = (puzzle, paramsId) => {
+import type { PuzzleType } from "../../types/PuzzleType"
+
+const useStartTimer = (puzzle: PuzzleType, paramsId: string) => {
+
   const [startTimerError, setStartTimerError] = useState(null); 
 
   useEffect(()=> {
