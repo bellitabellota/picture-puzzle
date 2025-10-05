@@ -1,6 +1,8 @@
 import {useState, useEffect} from "react";
 
-const usePostResult = (playerName, navigate, paramsId) => {
+import type { NavigateFunction } from "react-router-dom";
+
+const usePostResult = (playerName: string, navigate: NavigateFunction, paramsId: string) => {
   const [saveResultError, setSaveResultError] = useState(null);
   const [resultSaved, setResultSaved] = useState(false);
 
