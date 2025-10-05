@@ -29,8 +29,8 @@ function PicturePuzzle() {
   const selectBox = useRef(null);
   const imgRef = useRef(null);
 
-  function getCoordinates(event) {
-    const img = event.target;
+  function getCoordinates(event: React.MouseEvent<HTMLImageElement>) {
+    const img = event.currentTarget;
     const rect = img.getBoundingClientRect();
 
     const displayedWidth = rect.width;
