@@ -26,7 +26,7 @@ function PicturePuzzle() {
   const {startTimerError} = useStartTimer(puzzle, params.id);
   const {secondsPassed} = usePuzzleFrontendTimer (puzzle, secondsToCompletion);
 
-  const selectBox = useRef(null);
+  const selectBox = useRef<HTMLSelectElement>(null);
   const imgRef = useRef(null);
 
   function getCoordinates(event: React.MouseEvent<HTMLImageElement>) {

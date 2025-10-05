@@ -1,4 +1,15 @@
-function SelectBoxContainer({clickedCoordinates, selectBox, targets, selectName}) {
+import type { RefObject } from "react";
+import type { ClickedCoordinatesType } from "../../types/ClickedCoordinatesType"
+import type {TargetNameObjectType} from "../../types/TargetNameObjectType"
+
+type SelectBoxContainerPropType = {
+  clickedCoordinates: ClickedCoordinatesType,
+  selectBox: RefObject<HTMLSelectElement>,
+  targets: TargetNameObjectType[],
+  selectName: () => void,
+}
+
+function SelectBoxContainer({clickedCoordinates, selectBox, targets, selectName}: SelectBoxContainerPropType) {
   const targetOptions = targets.map((target) => <option value={target.name} key={target.name}>{target.name}</option>)
 
   return(

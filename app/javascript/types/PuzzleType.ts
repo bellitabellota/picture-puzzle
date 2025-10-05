@@ -1,3 +1,5 @@
+import type {TargetNameObjectType} from "./TargetNameObjectType"
+
 export type PuzzleType = {
   "id": number,
   "title": string,
@@ -5,13 +7,9 @@ export type PuzzleType = {
   "task_description": string,
   "resolution_width":number,
   "resolution_height": number,
-  "targets": TargetNameObject[],
+  "targets": TargetNameObjectType[],
   "created_at": string,
   "updated_at": string,
   "imageSrc": string,
   "taskDescription": string
-}
-
-type TargetNameObject = {
-    name: string
 }
