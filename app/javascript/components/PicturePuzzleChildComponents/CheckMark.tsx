@@ -1,6 +1,14 @@
 import {useState, useEffect} from "react";
 
-function CheckMark({identifiedTargets, imgRef, resolution}) {
+import type {IdentifiedTargetType} from "../../types/IdentifiedTargetType"
+
+type CheckMarkPropType = {
+  identifiedTargets: IdentifiedTargetType[],
+  imgRef: {current: HTMLImageElement},
+  resolution: [number, number]
+}
+
+function CheckMark({identifiedTargets, imgRef, resolution}:CheckMarkPropType) {
   const [scalingFactors, setScalingFactors] = useState({ scaleX: 1, scaleY: 1 });
 
   useEffect(() => {
