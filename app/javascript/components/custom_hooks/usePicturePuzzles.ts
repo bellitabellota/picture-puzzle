@@ -1,8 +1,25 @@
 import {useState, useEffect} from "react";
 
+import type {PreviewPicturePuzzleType} from "../../types/PreviewPicturePuzzleType"
+
+function isPreviewPicturePuzzle(data: any): data is PreviewPicturePuzzleType {
+  return(
+    data &&
+    typeof data.id === "number" &&
+    typeof data.title === "string" &&
+    typeof data.imageSrc === "string"
+  )
+}
+
+function isPreviewPicturePuzzleArray(data: any): data is PreviewPicturePuzzleType[] {
+  return(
+    Array.isArray(data) && data.every(isPreviewPicturePuzzle)
+  )
+}
+
 const usePicturePuzzles = () => {
-  const [picturePuzzles , setPicturePuzzles ] = useState([]);
-  const [error, setError] = useState(null);
+  const [picturePuzzles , setPicturePuzzles ] = useState<PreviewPicturePuzzleType[]>([]);
+  const [error, setError] = useState<Error|null>(null);
   const [isLoading, setIsLoading] = useState(true);
  
   useEffect(() => {
@@ -19,6 +36,9 @@ const usePicturePuzzles = () => {
       return response.json();
     })
     .then((response) => {
+      if(!isPreviewPicturePuzzleArray(response)) {
+        throw Error("Invalid picture puzzle preview data from API")
+      }
       setPicturePuzzles(response);
     }).catch((error) => {
       if (error.name !== "AbortError") {
