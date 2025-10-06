@@ -1,11 +1,51 @@
 import {useEffect, useState} from "react";
 
 import type { ClickedCoordinatesType } from "../../types/ClickedCoordinatesType";
+import type { IdentifiedTargetType } from "../../types/IdentifiedTargetType";
+
+function isIdentifiedTarget(data:any): data is IdentifiedTargetType {
+  return(
+    typeof data.name === "string" &&
+    typeof data.xCenter === "number" &&
+    typeof data.yCenter === "number"
+  )
+}
+
+type APIResponse = {
+  success: true
+  message: string
+  target: {
+    name: string
+    xCenter: number
+    yCenter: number
+  }
+} | {
+  success: false
+  message: string
+}
+
+function isValidAPIResponse(data: any): data is APIResponse {
+  if (!data || typeof data !== "object") return false;
+
+  if (data.success === true) {
+  return (
+  typeof data.message === "string" &&
+  typeof data.target === "object" &&
+  isIdentifiedTarget(data.target)
+  );
+  }
+
+  if (data.success === false) {
+  return typeof data.message === "string" && data.target === undefined;
+  }
+
+  return false;
+}
 
 const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|null)=> void, paramsId: string, clickedCoordinates:ClickedCoordinatesType|null, setIncorrectMessage:(a:string|null)=>void) => {
 
-  const [correctlyIdentifiedTargets, setCorrectlyIdentifiedTargets] = useState([]);
-  const [validationError, setValidationError] = useState(null);
+  const [correctlyIdentifiedTargets, setCorrectlyIdentifiedTargets] = useState<IdentifiedTargetType[]>([]);
+  const [validationError, setValidationError] = useState<Error | null>(null);
 
   useEffect(()=>{
     if (!selectedName) return;
@@ -32,6 +72,9 @@ const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|nu
       return response.json()
 
     }).then((data) => {
+      if(!isValidAPIResponse(data)) {
+        throw Error("Invalid API response.")
+      }
 
       const alreadyIdentified = correctlyIdentifiedTargets.some(
         target => target.name === data.target.name
