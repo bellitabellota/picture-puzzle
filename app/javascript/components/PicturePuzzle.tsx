@@ -15,6 +15,11 @@ import type {ClickedCoordinatesType} from "../types/ClickedCoordinatesType"
 
 function PicturePuzzle() {
   const params = useParams();
+
+  if (!params.id) {
+    throw new Error("Expected route param :id to exist");
+  }
+
   const {puzzle, error, isLoading}  = usePicturePuzzle(params.id);
 
   const [incorrectMessage, setIncorrectMessage] = useState(null);
