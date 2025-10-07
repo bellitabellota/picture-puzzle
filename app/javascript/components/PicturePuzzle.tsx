@@ -22,9 +22,9 @@ function PicturePuzzle() {
 
   const {puzzle, error, isLoading}  = usePicturePuzzle(params.id);
 
-  const [incorrectMessage, setIncorrectMessage] = useState(null);
-  const [clickedCoordinates, setClickedCoordinates] = useState<ClickedCoordinatesType>(null);
-  const [selectedName, setSelectedName] = useState(null);
+  const [incorrectMessage, setIncorrectMessage] = useState<string|null>(null);
+  const [clickedCoordinates, setClickedCoordinates] = useState<ClickedCoordinatesType | null>(null);
+  const [selectedName, setSelectedName] = useState<string|null>(null);
 
   const {correctlyIdentifiedTargets, validationError} = useValidateGuess(selectedName, setSelectedName, params.id, clickedCoordinates, setIncorrectMessage)
   const {secondsToCompletion, gameStateError} = useGameState(puzzle, correctlyIdentifiedTargets, params.id)
