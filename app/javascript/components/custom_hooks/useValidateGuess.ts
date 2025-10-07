@@ -51,7 +51,14 @@ const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|nu
     if (!selectedName) return;
 
     const url = `/api/v1/puzzle_validations/${paramsId}/validate_guess`
-    const token = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]').content;
+    const metaTag = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]');
+    const token = metaTag?.content;
+
+    if (!token) {
+      setValidationError(Error("CSRF token not found in document"));
+      return;
+    }
+
     const body = {originalX: clickedCoordinates.originalX, originalY: clickedCoordinates.originalY, selectedName}
 
     fetch(url, {
