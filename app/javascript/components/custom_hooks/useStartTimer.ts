@@ -9,7 +9,13 @@ const useStartTimer = (puzzle: PuzzleType, paramsId: string) => {
   useEffect(()=> {
     if(puzzle ) {
       const url = `/api/v1/puzzle_timers/${paramsId}/start_timer`;
-      const token = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]').content;
+      const metaTag = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]');
+      const token = metaTag?.content;
+
+      if (!token) {
+        throw Error("CSRF token not found in document");
+        return;
+      }      
 
       fetch(url, {
         method: "POST",
