@@ -29,12 +29,13 @@ function PicturePuzzle() {
   const {correctlyIdentifiedTargets, validationError} = useValidateGuess(selectedName, setSelectedName, params.id, clickedCoordinates, setIncorrectMessage)
   const {secondsToCompletion, gameStateError} = useGameState(puzzle, correctlyIdentifiedTargets, params.id)
   const {startTimerError} = useStartTimer(puzzle, params.id);
-  const {secondsPassed} = usePuzzleFrontendTimer (puzzle, secondsToCompletion);
+  const {secondsPassed} = usePuzzleFrontendTimer(puzzle, secondsToCompletion);
 
   const selectBox = useRef<HTMLSelectElement>(null);
   const imgRef = useRef(null);
 
   function getCoordinates(event: React.MouseEvent<HTMLImageElement>) {
+    if (!puzzle) return;
     const img = event.currentTarget;
     const rect = img.getBoundingClientRect();
 
