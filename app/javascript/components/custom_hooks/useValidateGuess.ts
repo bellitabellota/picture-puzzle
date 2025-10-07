@@ -42,13 +42,13 @@ function isValidAPIResponse(data: any): data is APIResponse {
   return false;
 }
 
-const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|null)=> void, paramsId: string, clickedCoordinates: ClickedCoordinatesType, setIncorrectMessage:(a:string|null)=>void) => {
+const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|null)=> void, paramsId: string, clickedCoordinates: ClickedCoordinatesType | null, setIncorrectMessage:(a:string|null)=>void) => {
 
   const [correctlyIdentifiedTargets, setCorrectlyIdentifiedTargets] = useState<IdentifiedTargetType[]>([]);
   const [validationError, setValidationError] = useState<Error | null>(null);
 
   useEffect(()=>{
-    if (!selectedName) return;
+    if (!selectedName || !clickedCoordinates) return;
 
     const url = `/api/v1/puzzle_validations/${paramsId}/validate_guess`
     const metaTag = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]');
