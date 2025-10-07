@@ -39,7 +39,7 @@ describe("PicturePuzzle", ()=> {
 
     usePuzzleFrontendTimer.mockReturnValue({ secondsPassed: 0 });
 
-    render(<PicturePuzzle />)
+    render(<RouterProvider router={memoryRouter}></RouterProvider>)
 
     expect(screen.getByText("Puzzle is loading ...")).toBeInTheDocument();
   })
@@ -52,7 +52,7 @@ describe("PicturePuzzle", ()=> {
 
     usePuzzleFrontendTimer.mockReturnValue({ secondsPassed: 0 });
 
-    render(<PicturePuzzle />)
+    render(<RouterProvider router={memoryRouter}></RouterProvider>)
     expect(screen.getByText("server error")).toBeInTheDocument();
   })
 
@@ -64,7 +64,7 @@ describe("PicturePuzzle", ()=> {
 
     usePuzzleFrontendTimer.mockReturnValue({ secondsPassed: 0 });
 
-    render(<PicturePuzzle />)
+    render(<RouterProvider router={memoryRouter}></RouterProvider>)
     expect(screen.getByText("useStartTimer error - The server could not correctly set the start time.")).toBeInTheDocument();
   })
 
@@ -76,7 +76,7 @@ describe("PicturePuzzle", ()=> {
 
     usePuzzleFrontendTimer.mockReturnValue({ secondsPassed: 0 });
 
-    render(<PicturePuzzle />)
+    render(<RouterProvider router={memoryRouter}></RouterProvider>)
     expect(screen.getByText("useValidationGuess error - The server could not correctly process the validation of the guess.")).toBeInTheDocument();
   })
 
@@ -88,7 +88,7 @@ describe("PicturePuzzle", ()=> {
 
     usePuzzleFrontendTimer.mockReturnValue({ secondsPassed: 0 });
 
-    render(<PicturePuzzle />)
+    render(<RouterProvider router={memoryRouter}></RouterProvider>)
     expect(screen.getByText("useGameState error - The server could not correctly process the validation of the game state.")).toBeInTheDocument();
   })
 
