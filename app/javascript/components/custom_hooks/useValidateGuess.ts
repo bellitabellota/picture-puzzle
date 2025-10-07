@@ -75,13 +75,17 @@ const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|nu
       if(!isValidAPIResponse(data)) {
         throw Error("Invalid API response.")
       }
+      
+      if (data.success === true) {
+        const alreadyIdentified = correctlyIdentifiedTargets.some(
+          target => target.name === data.target.name
+        );
 
-      const alreadyIdentified = correctlyIdentifiedTargets.some(
-        target => target.name === data.target.name
-      );
-
-      if (data.success === true && !alreadyIdentified) {
-        setCorrectlyIdentifiedTargets([...correctlyIdentifiedTargets, data.target]);
+        if(!alreadyIdentified) {
+          setCorrectlyIdentifiedTargets([...correctlyIdentifiedTargets, data.target]);
+        } else {
+          setIncorrectMessage("The target was already identified.");
+        }       
       } else {
         setIncorrectMessage(data.message);
       }
