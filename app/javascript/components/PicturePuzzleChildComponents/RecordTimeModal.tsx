@@ -8,7 +8,7 @@ function RecordTimeModal({secondsToCompletion}: {secondsToCompletion: number}) {
     throw new Error("Expected route param :id to exist");
   }
 
-  const [playerName, setPlayerName] = useState(null);
+  const [playerName, setPlayerName] = useState<string | null>(null);
   const inputField = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
