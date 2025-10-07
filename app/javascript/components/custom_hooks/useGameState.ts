@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import type { PuzzleType } from "../../types/PuzzleType";
 import type { IdentifiedTargetType } from "../../types/IdentifiedTargetType";
 
-const useGameState = (puzzle: PuzzleType, correctlyIdentifiedTargets: IdentifiedTargetType[], paramsId: string) => {
+const useGameState = (puzzle: PuzzleType | null, correctlyIdentifiedTargets: IdentifiedTargetType[], paramsId: string) => {
   const [secondsToCompletion, setSecondsToCompletion] = useState(null);
   const [gameStateError, setGameStateError] = useState(null);
 
