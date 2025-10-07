@@ -5,7 +5,7 @@ import type { PuzzleType } from "../../types/PuzzleType";
 
 const usePuzzleFrontendTimer = (puzzle: PuzzleType, secondsToCompletion: number) => {
   const [secondsPassed, setSecondsPassed] = useState(0);
-  const savedIncreaseSecondsPassed = useRef(null);
+  const savedIncreaseSecondsPassed = useRef<(() => void) |null>(null);
 
   function increaseSecondsPassed() {
     setSecondsPassed(secondsPassed + 1);
@@ -23,7 +23,7 @@ const usePuzzleFrontendTimer = (puzzle: PuzzleType, secondsToCompletion: number)
     if (secondsToCompletion) return;
 
     if (puzzle) {
-      id = setInterval(() => {savedIncreaseSecondsPassed.current()},  1000)
+      id = setInterval(() => {savedIncreaseSecondsPassed.current?.()},  1000)
     }
 
     return () => {
