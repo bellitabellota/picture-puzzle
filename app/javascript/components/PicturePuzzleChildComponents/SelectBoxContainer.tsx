@@ -4,7 +4,7 @@ import type {TargetNameObjectType} from "../../types/TargetNameObjectType"
 
 type SelectBoxContainerPropType = {
   clickedCoordinates: ClickedCoordinatesType,
-  selectBox: RefObject<HTMLSelectElement>,
+  selectBox: RefObject<HTMLSelectElement | null>,
   targets: TargetNameObjectType[],
   selectName: () => void,
 }
