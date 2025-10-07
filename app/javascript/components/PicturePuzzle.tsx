@@ -57,7 +57,7 @@ function PicturePuzzle() {
   }
 
   function selectName() {
-    if (!selectBox.current) return;
+    if (!selectBox.current || !clickedCoordinates) return;
     const selectedTargetName = selectBox.current.value;
     setSelectedName(selectedTargetName);
 
