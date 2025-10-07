@@ -3,7 +3,7 @@ import {useState, useEffect, useRef} from "react";
 
 import type { PuzzleType } from "../../types/PuzzleType";
 
-const usePuzzleFrontendTimer = (puzzle: PuzzleType, secondsToCompletion: number) => {
+const usePuzzleFrontendTimer = (puzzle: PuzzleType | null, secondsToCompletion: number | null) => {
   const [secondsPassed, setSecondsPassed] = useState(0);
   const savedIncreaseSecondsPassed = useRef<(() => void) |null>(null);
 
