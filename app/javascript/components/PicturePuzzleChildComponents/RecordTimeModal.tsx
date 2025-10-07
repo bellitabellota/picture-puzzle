@@ -4,6 +4,10 @@ import usePostResult from "../custom_hooks/usePostResult";
 
 function RecordTimeModal({secondsToCompletion}: {secondsToCompletion: number}) {
   const params = useParams();
+  if (!params.id) {
+    throw new Error("Expected route param :id to exist");
+  }
+  
   const [playerName, setPlayerName] = useState(null);
   const inputField = useRef(null);
   const navigate = useNavigate();
