@@ -7,9 +7,9 @@ function RecordTimeModal({secondsToCompletion}: {secondsToCompletion: number}) {
   if (!params.id) {
     throw new Error("Expected route param :id to exist");
   }
-  
+
   const [playerName, setPlayerName] = useState(null);
-  const inputField = useRef(null);
+  const inputField = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const {resultSaved, saveResultError} = usePostResult(playerName, params.id);
@@ -18,6 +18,7 @@ function RecordTimeModal({secondsToCompletion}: {secondsToCompletion: number}) {
   const remainingSeconds = secondsToCompletion % 60;
 
   function recordTimeHandler() {
+    if (!inputField.current) return;
     if (inputField.current.value === "") {
       return alert("Enter a name to record your time.")
     }
