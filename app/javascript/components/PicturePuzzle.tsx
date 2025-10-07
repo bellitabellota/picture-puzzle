@@ -67,6 +67,7 @@ function PicturePuzzle() {
 
   if(isLoading) return <p>Puzzle is loading ...</p>
   if(error) return <p>{error.message}</p>;
+  if (!puzzle) return <p>Puzzle not found</p>;
   if(startTimerError) return <p>{startTimerError.message} - The server could not correctly set the start time.</p>;
   if(validationError) return <p>{validationError.message} - The server could not correctly process the validation of the guess.</p>;
   if(gameStateError) return <p>{gameStateError.message} - The server could not correctly process the validation of the game state.</p>;
