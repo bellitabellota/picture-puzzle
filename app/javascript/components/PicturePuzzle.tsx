@@ -57,6 +57,7 @@ function PicturePuzzle() {
   }
 
   function selectName() {
+    if (!selectBox.current) return;
     const selectedTargetName = selectBox.current.value;
     setSelectedName(selectedTargetName);
 
