@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-const usePostResult = (playerName: string, paramsId: string) => {
+const usePostResult = (playerName: string | null, paramsId: string) => {
   const [saveResultError, setSaveResultError] = useState<Error|null>(null);
   const [resultSaved, setResultSaved] = useState(false);
 
