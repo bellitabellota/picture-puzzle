@@ -42,7 +42,7 @@ function isValidAPIResponse(data: any): data is APIResponse {
   return false;
 }
 
-const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|null)=> void, paramsId: string, clickedCoordinates:ClickedCoordinatesType|null, setIncorrectMessage:(a:string|null)=>void) => {
+const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|null)=> void, paramsId: string, clickedCoordinates: ClickedCoordinatesType, setIncorrectMessage:(a:string|null)=>void) => {
 
   const [correctlyIdentifiedTargets, setCorrectlyIdentifiedTargets] = useState<IdentifiedTargetType[]>([]);
   const [validationError, setValidationError] = useState<Error | null>(null);
@@ -75,7 +75,7 @@ const useValidateGuess = (selectedName:string|null, setSelectedName:(a:string|nu
       if(!isValidAPIResponse(data)) {
         throw Error("Invalid API response.")
       }
-      
+
       if (data.success === true) {
         const alreadyIdentified = correctlyIdentifiedTargets.some(
           target => target.name === data.target.name
