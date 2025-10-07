@@ -5,7 +5,7 @@ import type { IdentifiedTargetType } from "../../types/IdentifiedTargetType";
 
 const useGameState = (puzzle: PuzzleType | null, correctlyIdentifiedTargets: IdentifiedTargetType[], paramsId: string) => {
   const [secondsToCompletion, setSecondsToCompletion] = useState(null);
-  const [gameStateError, setGameStateError] = useState(null);
+  const [gameStateError, setGameStateError] = useState<Error | null>(null);
 
   useEffect(() => {
     if (puzzle && (correctlyIdentifiedTargets.length === puzzle.targets.length)) {
