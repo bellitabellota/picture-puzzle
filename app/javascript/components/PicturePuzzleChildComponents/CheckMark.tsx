@@ -5,7 +5,7 @@ import type {IdentifiedTargetType} from "../../types/IdentifiedTargetType"
 
 type CheckMarkPropType = {
   identifiedTargets: IdentifiedTargetType[],
-  imgRef: RefObject<HTMLImageElement>,
+  imgRef: RefObject<HTMLImageElement | null>,
   resolution: [number, number]
 }
 
