@@ -3,6 +3,11 @@ import usePuzzleResults from "./custom_hooks/usePuzzleResults";
 
 function PuzzleResults() {
   const params = useParams();
+  
+  if (!params.id) {
+    throw new Error("Expected route param :id to exist");
+  }
+
   const {puzzleResults, puzzleTitle, error, isLoading} = usePuzzleResults(params.id);
 
   if(isLoading) return <p>Puzzle Results are loading ...</p>
