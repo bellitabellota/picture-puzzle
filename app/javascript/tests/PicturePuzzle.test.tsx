@@ -57,7 +57,7 @@ describe("PicturePuzzle", ()=> {
   })
 
   it("renders error message if useStartTimer returned an Error", () => {
-    usePicturePuzzle.mockReturnValue({puzzle: null, error: null, isLoading: false})
+    usePicturePuzzle.mockReturnValue({puzzle: testPuzzle, error: null, isLoading: false})
     useValidateGuess.mockReturnValue({ correctlyIdentifiedTargets: [], validationError: null });
     useGameState.mockReturnValue({ secondsToCompletion: null, gameStateError: null })
     useStartTimer.mockReturnValue({ startTimerError: new Error("useStartTimer error") });
@@ -69,7 +69,7 @@ describe("PicturePuzzle", ()=> {
   })
 
   it("renders error message if useValidationGuess returned an Error", () => {
-    usePicturePuzzle.mockReturnValue({puzzle: null, error: null, isLoading: false})
+    usePicturePuzzle.mockReturnValue({puzzle: testPuzzle, error: null, isLoading: false})
     useValidateGuess.mockReturnValue({ correctlyIdentifiedTargets: [], validationError: new Error("useValidationGuess error") });
     useGameState.mockReturnValue({ secondsToCompletion: null, gameStateError: null })
     useStartTimer.mockReturnValue({ startTimerError: null });
@@ -81,7 +81,7 @@ describe("PicturePuzzle", ()=> {
   })
 
   it("renders error message if useGameState returned an Error", () => {
-    usePicturePuzzle.mockReturnValue({puzzle: null, error: null, isLoading: false})
+    usePicturePuzzle.mockReturnValue({puzzle: testPuzzle, error: null, isLoading: false})
     useValidateGuess.mockReturnValue({ correctlyIdentifiedTargets: [], validationError: null });
     useGameState.mockReturnValue({ secondsToCompletion: null, gameStateError: new Error("useGameState error") })
     useStartTimer.mockReturnValue({ startTimerError: null });
