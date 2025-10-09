@@ -10,11 +10,12 @@ vi.mock("../../components/custom_hooks/usePostResult", () => ({
 describe("RecordTimeModal", ()=> {
   const router = createMemoryRouter(
     [{
-      path: "/",
+      path: "/:id",
       element: <RecordTimeModal secondsToCompletion={30} />,
-    }]
+    }], 
+    { initialEntries: ["/1"] }
   );
-
+ 
   it("displays the formatted seconds when time under 1 minute", ()=> {
     usePostResult.mockReturnValue({ resultSaved: false, saveResultError: null })
     render(<RouterProvider router={router} />)
@@ -25,9 +26,10 @@ describe("RecordTimeModal", ()=> {
     usePostResult.mockReturnValue({ resultSaved: false, saveResultError: null })
     const routerOverOneMinute = createMemoryRouter(
       [{
-        path: "/",
+        path: "/:id",
         element: <RecordTimeModal secondsToCompletion={90} />,
-      }]
+      }],
+       { initialEntries: ["/1"] }
     );
 
     render(<RouterProvider router={routerOverOneMinute} />)
