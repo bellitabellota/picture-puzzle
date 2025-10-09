@@ -26,9 +26,9 @@ function isPuzzleResultsWithPuzzleTitle(data:any): data is PuzzleResultsWithPuzz
 }
 
 const usePuzzleResults = (paramsId: string) => {
-  const [puzzleResults, setPuzzleResults] = useState([]);
-  const [puzzleTitle, setPuzzleTitle] = useState(null);
-  const [error, setError] = useState(null);
+  const [puzzleResults, setPuzzleResults] = useState<PuzzleResultType[]>([]);
+  const [puzzleTitle, setPuzzleTitle] = useState<string|null>(null);
+  const [error, setError] = useState<Error|null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
