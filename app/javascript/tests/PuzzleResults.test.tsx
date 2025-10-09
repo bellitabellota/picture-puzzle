@@ -8,10 +8,12 @@ vi.mock("../components/custom_hooks/usePuzzleResults", () => ({
   default: vi.fn(),
 }))
 
+const memoryRouter = createMemoryRouter(routes, { initialEntries: ["/123/results"] });
+
 describe("PuzzleResults", () => {
   it("renders 'Puzzle Results are loading ...' if isLoading is true", () => {
     usePuzzleResults.mockReturnValue({puzzleResults: [], puzzleTitle: null,  error: null, isLoading: true})
-    render(<PuzzleResults />)
+    render(<RouterProvider router={memoryRouter} />)
 
     expect(screen.getByText("Puzzle Results are loading ...")).toBeInTheDocument();
   })
@@ -19,12 +21,12 @@ describe("PuzzleResults", () => {
   it("renders error message if sePuzzleResults returned an Error", () => {
     usePuzzleResults.mockReturnValue({puzzleResults: [], puzzleTitle: null, error: new Error("server error"), isLoading: false})
 
-    render(<PuzzleResults />)
+    render(<RouterProvider router={memoryRouter} />)
     expect(screen.getByText("server error")).toBeInTheDocument();
   })
 
   it("renders puzzleResults and puzzleTitle if usePuzzleResults returned puzzleResults", ()=> {
-    const memoryRouter = createMemoryRouter(routes, { initialEntries: ["/123/results"] });
+
     usePuzzleResults.mockReturnValue({
       puzzleResults: [
         {id: 1, name: "Player 1", secondsToCompletion: 28},
