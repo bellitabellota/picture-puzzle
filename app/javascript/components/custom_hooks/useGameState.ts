@@ -21,7 +21,7 @@ function isAPIResponse(data:any): data is APIResponse {
 }
 
 const useGameState = (puzzle: PuzzleType | null, correctlyIdentifiedTargets: IdentifiedTargetType[], paramsId: string) => {
-  const [secondsToCompletion, setSecondsToCompletion] = useState(null);
+  const [secondsToCompletion, setSecondsToCompletion] = useState<number|null>(null);
   const [gameStateError, setGameStateError] = useState<Error | null>(null);
 
   useEffect(() => {
