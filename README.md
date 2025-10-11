@@ -1,3 +1,5 @@
+Update Oktober 2024: This project was revisited migrating it to TypeScript to get hands-on practice with TypeScript.
+
 ## Picture Puzzle App
 This project is my realization of the [TOP's Photo Tagging App](https://zippy-velma-picture-puzzle-678a8073.koyeb.app/).
 
@@ -27,6 +29,23 @@ ___
 •	Results Page - The Smurfs:  
 ![Screenshot from 2025-06-16 15-10-23](https://github.com/user-attachments/assets/db9c8def-e4f9-4ff6-a36b-8ba7bd300f90)
 
+
+## Running the app locally
+1. Clone the project and `cd` into the project folder
+2. Run `bundle install`
+3. Run `yarn install`
+4. Setup and seed the database
+    - `rails db:create`
+    - `rails db:migrate`
+    - `rails db:seed`
+5. Start the developement environement with `./bin/dev`.
+
+  ### Runing the test suites
+  For RSpec tests: `bundle exec rspec`
+  For Vitest tests: `yarn test`
+  
+  ### Running TypeScript manually
+  `yarn tsc`
 
 ## Image Sources:
 The Smurfs:
