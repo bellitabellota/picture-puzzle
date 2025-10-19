@@ -33,7 +33,7 @@ RSpec.describe "PicturePuzzlesController", type: :request do
       puzzles = JSON.parse(response.body)
       first_puzzle = puzzles[0]
 
-      expect(first_puzzle).to eql({ "id"=>1, "title"=>"Test Puzzle 1", "image_src"=>"/picture-puzzle-images/test-puzzle-1.jpg" })
+      expect(first_puzzle).to eql({ "id"=>1, "title"=>"Test Puzzle 1", "imageSrc"=>"/picture-puzzle-images/test-puzzle-1.jpg" })
     end
 
     it "returns the status code 200" do
@@ -70,10 +70,10 @@ RSpec.describe "PicturePuzzlesController", type: :request do
       puzzle = JSON.parse(response.body)
 
       expect(puzzle["id"]).to eql(1)
-      expect(puzzle["image_src"]).to eql("/picture-puzzle-images/test-puzzle-1.jpg")
-      expect(puzzle["task_description"]).to eql("Find object 1 and 2.")
-      expect(puzzle["resolution_width"]).to eql(1000)
-      expect(puzzle["resolution_height"]).to eql(674)
+      expect(puzzle["imageSrc"]).to eql("/picture-puzzle-images/test-puzzle-1.jpg")
+      expect(puzzle["taskDescription"]).to eql("Find object 1 and 2.")
+      expect(puzzle["resolutionWidth"]).to eql(1000)
+      expect(puzzle["resolutionHeight"]).to eql(674)
       expect(puzzle["targets"]).to eql([ { "name"=>"Test Object 1" }, { "name"=>"Test Object 2" }, { "name"=>"Test Object 3" } ])
     end
 
